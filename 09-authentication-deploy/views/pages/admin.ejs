@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <%- include('../partials/head.ejs', { title: role }); %>
+
+  <body>
+    <%- include('../partials/navbar.ejs', { title: role }); %>
+
+    <main class="py-5">
+      <section>
+        <div class="container">
+          <div class="table-responsive">
+            <table class="table table-striped table-hover">
+              <thead>
+                <tr>
+                  <th scope="col">No</th>
+                  <th scope="col">Name</th>
+                  <th scope="col">Email</th>
+                  <th scope="col">Role</th>
+                  <th scope="col" class="text-center">Created At</th>
+                  <th scope="col" class="text-center">Updated At</th>
+                  <th scope="col" class="text-center">Action</th>
+                </tr>
+              </thead>
+              <tbody>
+                <% data.map(({ id, name, email, role, createdAt, updatedAt}, index) => { %>
+                <tr>
+                  <th scope="row"><%= index+1 %></th>
+                  <td><%= name %></td>
+                  <td><%= email %></td>
+                  <td><%= role %></td>
+                  <td><%= createdAt %></td>
+                  <td><%= updatedAt %></td>
+                  <td>
+                    <form method="POST" action="/admin/users/<%- id %>?_method=DELETE">
+                      <input type="hidden" name="_method" value="DELETE" />
+                      <button type="submit" class="btn btn-danger">Delete</button>
+                    </form>
+                  </td>
+                </tr>
+                <% }) %>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <%- include('../partials/footer.ejs'); %> <%- include('../partials/script.ejs'); %>
+  </body>
+</html>

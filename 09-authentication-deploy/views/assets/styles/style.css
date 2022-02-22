@@ -1,0 +1,17 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+}
+
+.jumbotron {
+  padding: 8rem 0;
+}
+
+#not-found-image {
+  max-height: 350px;
+}

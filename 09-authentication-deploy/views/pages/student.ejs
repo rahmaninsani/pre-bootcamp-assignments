@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+  <%- include('../partials/head.ejs', { title: role }); %>
+
+  <body>
+    <%- include('../partials/navbar.ejs', { title: role }); %>
+
+    <main>
+      <section class="jumbotron text-center">
+        <img src="/images/student.png" alt="Rahman Insani" width="200" class="rounded-circle img-thumbnail" />
+        <h1 class="pt-2"><%= data.name %></h1>
+        <p class="lead"><%= data.email %></p>
+        <p><small>Student since <%= studentSince %></small></p>
+      </section>
+    </main>
+
+    <%- include('../partials/footer.ejs'); %> <%- include('../partials/script.ejs'); %>
+  </body>
+</html>
